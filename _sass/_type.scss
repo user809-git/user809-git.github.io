@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   
   @media (prefers-color-scheme: dark) {
-    color: #d0f6db;
+    color: #fcf7e1;
 	}
 }
 
@@ -21,7 +21,7 @@ h2::before,h4::before,h5::before,h6::before {
 	position: absolute;
     
   @media (prefers-color-scheme: dark) {
-    color: #d0f6db;
+    color: #fcf7e1;
 	}
 }
 
@@ -127,12 +127,12 @@ figure {
 }
 
 mark {
-    background: #cefce8;
-    color: $body-color;
-	padding: 2px 2px;
-	
-  @media (prefers-color-scheme: dark) {
     background: #0fb47c;
+    color: $body-color;
+    padding: 2px 2px;
+    
+    @media (prefers-color-scheme: dark) {
+    background: #f3fcce;
     color: $body-color-dark;
     }
 }
