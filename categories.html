@@ -1,25 +1,32 @@
 ---
-layout: page
-permalink: /categories/
+layout: blog
 title: Categories
+group: navigation
+tagline: All posts order by capegories 
+tags : [blog, fullit, posts, post]
+img : 3.jpg
+img-mobile : 3-mobile.jpg
+author : Antonio Trento
+css: 
+js:
+bgcolor: ff5a71
+keywords: fullpage, html, css, landing page, jekyll, ruby, web marketing, advertising, Antonio Trento
+canonical: https://fullit.github.io/blog
 ---
+{% include JB/setup %}
 
-<div>
-{% assign categories_sorted = site.categories | sort %}
-{% for category in categories_sorted %}
-  <div class="archive-group">
-    {% capture category_name %}{{ category | first }}{% endcapture %}
-	
-    <div id="#{{ category_name | slugize }}"></div>
 
-    <h3 class="category-head"><small>{{ category_name }}</small></h3>
-    <a name="{{ category_name | slugize }}"></a>
+<ul class="nav nav-pills">
+  {% assign categories_list = site.categories %}
+  {% include JB/categories_list %}
+</ul>
 
-    {% for post in site.categories[category_name] %}
-    <article class="archive-item">
-      <a href="{{ post.url }}">{{ post.title }}{% if post.link %}<span class="link-arrow"> &rarr;</span>{% endif %}</a>
-    </article>
-    {% endfor %}
-  </div>
+
+{% for category in site.categories %}
+  <h2 id="{{ category[0] }}-ref">{{ category[0] | join: "/" }}</h2>
+  <ul>
+    {% assign pages_list = category[1] %}
+    {% include JB/pages_list %}
+  </ul>
 {% endfor %}
-</div>
+
